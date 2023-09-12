@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using XJSC20231109.Models;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -8,36 +9,18 @@ namespace XJSC20231109.Controllers
     [ApiController]
     public class AulasController : ControllerBase
     {
-        // GET: api/<AulasController>
+        static List<Aulas> aulas = new List<Aulas>()
+        { 
+            new Aulas() { Id = 1,aulas = "Matematicas"},
+           new Aulas() { Id = 1,aulas = "Ciencias"},
+           new Aulas() { Id = 1,aulas = "Informatica"},
+        };
+
         [HttpGet]
-        public IEnumerable<string> Get()
+        public IEnumerable<Aulas> Get()
         {
-            return new string[] { "value1", "value2" };
+            return aulas;
         }
 
-        // GET api/<AulasController>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
-        {
-            return "value";
-        }
-
-        // POST api/<AulasController>
-        [HttpPost]
-        public void Post([FromBody] string value)
-        {
-        }
-
-        // PUT api/<AulasController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        // DELETE api/<AulasController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-        }
     }
 }
